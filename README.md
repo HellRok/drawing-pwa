@@ -7,10 +7,7 @@
 
 ## Setup
 
-```
-bundle install
-yarn install
-```
+Clone this repo to and run `bootstrap.sh`, you should now be good to start developing!
 
 ## Running
 
