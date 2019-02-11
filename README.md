@@ -1,4 +1,4 @@
-# Basic Sinatra + MoonJS Template
+# Basic Sinatra + VueJS Template
 
 ## Requirements
 

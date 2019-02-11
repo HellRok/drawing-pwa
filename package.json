@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "moon": "^1.0.0-beta.2",
-    "moon-router": "^0.1.3"
+    "vue": "^2.6.4",
+    "vue-router": "^3.0.2",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
   },
   "scripts": {
     "dev": "webpack --mode development --watch --output ./public/javascripts/application.js",
-    "build": "webpack --mode production --output ./public/javascripts/application.js"
+    "heroku-postbuild": "webpack --mode production --output ./public/javascripts/application.js"
   }
 }
