@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.common.js';
 
 const template = `
-  <div><h1>Home!</h1></div>
+  <div>Home!</div>
 `;
 
 export default Vue.component(

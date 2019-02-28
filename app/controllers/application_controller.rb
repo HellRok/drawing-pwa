@@ -7,6 +7,15 @@ class ApplicationController < Sinatra::Base
 
   set :public_folder, 'public'
 
+  before do
+    uri = URI(request.url)
+
+    if uri.scheme == 'http'
+      uri.scheme = 'https'
+      redirect uri
+    end
+  end
+
   # don't enable logging when running tests
   configure :production, :development do
     enable :logging

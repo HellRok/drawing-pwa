@@ -10,7 +10,8 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "dev": "webpack --mode development --watch --output ./public/javascripts/application.js",
+    "javascripts": "webpack --mode development --watch --output ./public/javascripts/application.js",
+    "stylesheets": "bundle exec sass --watch src/stylsheets/application.scss:public/stylesheets/application.css",
     "heroku-postbuild": "webpack --mode production --output ./public/javascripts/application.js"
   }
 }

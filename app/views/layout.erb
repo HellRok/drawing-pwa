@@ -4,25 +4,25 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#FFFFFF">
 
     <title>Basic Setup</title>
     <script src="/javascripts/application.js"></script>
     <link rel="stylesheet" href="/stylesheets/application.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
   </head>
 
   <body>
-    <nav>
-      <div class="content">
-        <a href="/" class="logo">CHANGE ME</a>
-      </div>
-    </nav>
-
-    <div class="content">
-      <%= yield %>
-    </div>
+    <%= yield %>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+            console.log('Service Worker Registered');
+          });
+      }
+    </script>
   </body>
 </html>
