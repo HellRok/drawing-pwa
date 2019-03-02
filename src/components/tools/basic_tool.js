@@ -2,7 +2,6 @@ export default class BasicTool {
   constructor(canvasElement) {
     this.started = false;
     this.canvas = canvasElement.getContext('2d');
-    console.log(canvasElement);
 
     const _this = this;
     canvasElement.addEventListener('mousedown', (event) => _this.start(event));
