@@ -1,6 +1,6 @@
 {
-  "name": "PWA Test",
-  "short_name": "PWAT",
+  "name": "Drawing",
+  "short_name": "Draw",
   "icons": [
     {
       "src": "images/icon-512x512.png",
