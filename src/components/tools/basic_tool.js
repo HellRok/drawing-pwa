@@ -38,6 +38,9 @@ export default class BasicTool {
     const position = this.positionFrom(event);
 
     this.canvas.strokeStyle = 'rgba(0,0,0,1)'; //getColour();
+    this.canvas.lineWidth = 3;
+    this.canvas.lineCap = "round";
+    this.canvas.lineJoin = "round";
     this.canvas.beginPath();
     this.canvas.moveTo(position.x, position.y);
     this.started = true;
