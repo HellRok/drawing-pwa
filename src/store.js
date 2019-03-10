@@ -9,7 +9,18 @@ export default new Vuex.Store({
   },
   mutations: {
     project (state, project) {
-      state.project = project
+      state.project = project;
+    },
+    commitCanvas(state, { canvas, position }) {
+      state.project.commitCanvas(canvas, position);
+    }
+  },
+  getters: {
+    project: (state, getters) => {
+      return state.project;
+    },
+    chunksFor: (state, getters) => (topLeft, bottomRight) => {
+      return state.project.chunksFor(topLeft, bottomRight);
     }
   }
 });

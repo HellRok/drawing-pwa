@@ -15,7 +15,11 @@ export default Vue.component(
       return {
         drawingCanvas: undefined,
         selectedTool: undefined,
-        tool: undefined
+        tool: undefined,
+        position: {
+          x: 0,
+          y: 0
+        }
       }
     },
     methods: {
@@ -25,10 +29,14 @@ export default Vue.component(
       }
     },
     mounted: function() {
+      if (typeof this.$store.getters.project === 'undefined') {
+        this.$router.push('/');
+      }
+
       this.drawingCanvas = document.querySelector('.drawing-canvas');
       this.updateDrawingCanvasSize();
       window.addEventListener('resize', this.updateDrawingCanvasSize);
-      this.tool = new BasicTool(this.drawingCanvas);
+      this.tool = new BasicTool(this.drawingCanvas, this.$store, this.position);
     }
   }
 );
