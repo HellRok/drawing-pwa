@@ -79,8 +79,9 @@ export default class BasicTool {
 
     for (let position of this.positions) {
       this.canvas.lineTo(position.x, position.y);
-      this.canvas.stroke();
     }
+
+    this.canvas.stroke();
   }
 
   commit() {
