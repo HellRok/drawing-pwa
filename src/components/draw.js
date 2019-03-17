@@ -1,10 +1,12 @@
 import Vue from 'vue/dist/vue.common.js';
+import './draw/menu';
 import BasicTool from './tools/basic_tool';
 
 const template = `
   <div>
     <div class="chunk-container"></div>
     <canvas class="drawing-canvas"></canvas>
+    <draw-menu></draw-menu>
   </div>
 `;
 
@@ -59,4 +61,3 @@ export default Vue.component(
     }
   }
 );
-
