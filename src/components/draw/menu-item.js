@@ -12,8 +12,7 @@ const template = `
         :icon="element.icon"
         :name="element.name"
         :action="element.action"
-        :children="element.children"
-        :parent="this"></draw-menu-item>
+        :children="element.children"></draw-menu-item>
     </div>
   </div>
 `;
@@ -22,7 +21,7 @@ export default Vue.component(
   'draw-menu-item',
   {
     template: template,
-    props: ['element', 'icon', 'name', 'action', 'children', 'parent'],
+    props: ['element', 'icon', 'name', 'action', 'children'],
     data: () => {
       return {
         showChildren: false

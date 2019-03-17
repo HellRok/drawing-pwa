@@ -8,9 +8,7 @@ const template = `
       :icon="element.icon"
       :name="element.name"
       :action="element.action"
-      :children="element.children"
-      :visible="true"
-      :parent="this"></draw-menu-item>
+      :children="element.children"></draw-menu-item>
   </div>
 `;
 
