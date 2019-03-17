@@ -43,6 +43,7 @@ export default class BasicTool {
 
   start(event) {
     event.preventDefault();
+    if (event.type === 'mousedown' && event.button !== 0) { return }
     this.positions.push(this.positionFrom(event));
     this.started = true;
     this.update();
