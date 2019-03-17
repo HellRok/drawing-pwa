@@ -27,13 +27,13 @@ export default Vue.component(
               {
                 icon: 'pencil-alt',
                 name: 'Pencil',
-                action: undefined,
+                action: function() { this.setTool('pencil'); },
                 children: []
               },
               {
                 icon: 'arrows-alt',
                 name: 'Pan',
-                action: undefined,
+                action: function() { this.setTool('pan'); },
                 children: []
               },
               {

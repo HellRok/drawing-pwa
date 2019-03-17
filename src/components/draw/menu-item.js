@@ -40,6 +40,9 @@ export default Vue.component(
       },
       toggle() {
         this.showChildren = !this.showChildren;
+      },
+      setTool(tool) {
+        this.$store.commit('tool', tool);
       }
     }
   }

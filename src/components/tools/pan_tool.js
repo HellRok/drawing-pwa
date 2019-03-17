@@ -1,4 +1,4 @@
-export default class BasicTool {
+export default class PanTool {
   constructor(canvasElement, store) {
     this.reset();
     this.store = store;
@@ -30,7 +30,7 @@ export default class BasicTool {
 
   reset() {
     this.started = false;
-    this.positions = []
+    this.lastPosition = undefined
   }
 
   positionFrom(event) {
@@ -48,52 +48,28 @@ export default class BasicTool {
   start(event) {
     event.preventDefault();
     if (event.type === 'mousedown' && event.button !== 0) { return }
-    this.positions.push(this.positionFrom(event));
+    this.lastPosition = this.positionFrom(event);
     this.started = true;
-    this.update();
   }
 
   movement(event) {
     if (this.started) {
       event.preventDefault();
-      this.positions.push(this.positionFrom(event));
-      this.update();
+
+      const currentPosition = this.positionFrom(event);
+
+      this.store.commit('position', {
+        x: this.store.getters.position.x + this.lastPosition.x - currentPosition.x,
+        y: this.store.getters.position.y + this.lastPosition.y - currentPosition.y
+      });
+
+      this.lastPosition = currentPosition;
     }
   }
 
   end(event) {
     event.preventDefault();
-    if (event.type !== 'touchend') {
-      this.positions.push(this.positionFrom(event));
-    }
     this.started = false;
-    this.update();
     this.reset();
-    this.commit();
-  }
-
-  update() {
-    this.canvas.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
-
-    this.canvas.strokeStyle = 'rgba(0,0,0,1)'; //getColour();
-    this.canvas.lineWidth = 3;
-    this.canvas.lineCap = 'round';
-    this.canvas.lineJoin = 'round';
-    this.canvas.beginPath();
-    this.canvas.moveTo(this.positions[0].x, this.positions[0].y);
-
-    for (let position of this.positions) {
-      this.canvas.lineTo(position.x, position.y);
-    }
-
-    this.canvas.stroke();
-  }
-
-  commit() {
-    this.store.commit('commitCanvas', {
-      canvas: this.canvasElement,
-      position: this.store.getters.position
-    });
-    this.canvas.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
   }
 }
