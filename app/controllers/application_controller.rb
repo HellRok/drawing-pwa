@@ -10,10 +10,11 @@ class ApplicationController < Sinatra::Base
   before do
     uri = URI(request.url)
 
-    if uri.scheme == 'http'
-      uri.scheme = 'https'
-      redirect uri
-    end
+    return if %w(127.0.0.1 localhost).include?(uri.host)
+    return unless uri.scheme == 'http'
+
+    uri.scheme = 'https'
+    redirect uri
   end
 
   # don't enable logging when running tests
