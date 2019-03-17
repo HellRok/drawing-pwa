@@ -20,6 +20,9 @@ export default new Vuex.Store({
       return state.project;
     },
     chunksFor: (state, getters) => (topLeft, bottomRight) => {
+      if (typeof state.project === 'undefined') {
+        return [];
+      }
       return state.project.chunksFor(topLeft, bottomRight);
     }
   }

@@ -89,5 +89,6 @@ export default class BasicTool {
       canvas: this.canvasElement,
       position: this.position
     });
+    this.canvas.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
   }
 }

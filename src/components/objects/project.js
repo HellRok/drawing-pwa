@@ -1,6 +1,6 @@
 export default class Project {
   constructor() {
-    this.chunkSize = 256;
+    this.chunkSize = 1024;
     this.chunks = {};
   }
 
@@ -34,6 +34,7 @@ export default class Project {
       for (let x = adjustedLeft; x <= adjustedRight; x++) {
         returnChunks.push({
           x: x, y: y,
+          globalX: x * this.chunkSize, globalY: y * this.chunkSize,
           canvasElement: this.getChunk(x, y)
         });
       }
