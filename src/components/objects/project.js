@@ -24,10 +24,10 @@ export default class Project {
   }
 
   chunksFor(topLeft, bottomRight) {
-    const adjustedLeft = Math.floor(topLeft.x / this.chunkSize);
-    const adjustedTop = Math.floor(topLeft.y / this.chunkSize);
-    const adjustedRight = Math.floor(bottomRight.x / this.chunkSize);
-    const adjustedBottom = Math.floor(bottomRight.y / this.chunkSize);
+    const adjustedLeft = Math.floor(topLeft.x / this.chunkSize) - 1;
+    const adjustedTop = Math.floor(topLeft.y / this.chunkSize) - 1;
+    const adjustedRight = Math.floor(bottomRight.x / this.chunkSize) + 1;
+    const adjustedBottom = Math.floor(bottomRight.y / this.chunkSize) + 1;
     let returnChunks = [];
 
     for (let y = adjustedTop; y <= adjustedBottom; y++) {
