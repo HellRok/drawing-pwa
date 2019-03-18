@@ -1,6 +1,8 @@
+const version = '0.0.1';
+
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('sw-cache').then(function(cache) {
+    caches.open(`sw-cache-${version}`).then(function(cache) {
       cache.add('/');
       cache.add('/javascripts/application.js');
       cache.add('/stylesheets/application.css');
